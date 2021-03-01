@@ -1,0 +1,335 @@
+table{
+    width:100%;
+    max-width:1000px;
+    margin:10px auto;
+}
+table tr{
+    text-align:center;
+    border-bottom:1px solid black;
+}
+table td,
+table th{
+    padding:5px 0;
+}
+table tr:hover{
+    background:#DFF2FC;
+}
+td.action{
+    width:49px;
+}
+/*admin mypage*/
+div.administrator{
+    width:100%;
+    max-width:1000px;
+    margin:0 auto;
+}
+div.new_account{
+    display:flex;
+}
+div.weekly_summary{
+    display:flex;
+}
+/*delete button/edit button*/
+button {
+  background: none;
+  border: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+td.action a{
+    display:block;
+    width:40px;
+    height:18px; 
+    margin:auto 0;
+}
+.button_delete{
+    color:white;
+    background:red;
+    border:1px solid red;
+    border-radius:2px;
+    padding:2px 2px;
+    margin:0 1px;
+    font-size:16px;
+}
+.button_delete:hover{
+    color:red;
+    background:white;
+}
+.button_edit{
+    color:white;
+    background:blue;
+    border:1px solid blue;
+    border-radius:2px;
+    padding:2px 2px;
+    margin:0 1px;
+    font-size:16px;
+}
+.button_edit:hover{
+    color:blue;
+    background:white;
+}
+div.new_subject{
+    margin:10px auto;
+    text-align:center;
+}
+div.new_subject input[type="submit"]{
+  width:200px;
+  background: #ffa035;
+  border:none;
+  border-radius:5px;
+  padding:5px 0;
+  text-decoration: none;
+  font-size:20px;
+  color:white;
+  font-weight:700;
+}
+div.new_subject input[type="submit"]:hover{
+  background: #ff8300;
+  color:white;
+}
+div.new_account{
+  width:100%;
+  max-width:1000px;
+}
+div.new_account_data{
+  padding:10px 0;
+  text-align:center;
+  width:200px;
+  margin:10px auto;
+  border-top:1px solid black;
+  border-bottom:1px solid black;
+}
+div.new_account_data p{
+  font-size:60px;
+}
+div.new_account_data span{
+  font-size:20px;
+}
+/*adminregist*/
+div.main{
+  width:100%;
+  box-sizing:border-box;
+}
+div.wrapper{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+div.frame{
+  width:84%;
+  max-width:740px;
+  border:1px solid #ccc;
+  padding:5% 3%;
+  margin:5%;
+  border-radius:5px;
+}
+div.inner{
+  width:90%;
+  max-width:1000px;
+  border:1px solid #ccc;
+  padding:5%;
+  border-radius:5px;
+  background:#eee;
+}
+div.inner input[type=submit]{
+  width:50%;
+  background: #ffa035;
+  border:none;
+  border-radius:5px;
+  padding:5px 5px;
+  margin:20px 25%;
+  font-size:20px;
+  color:white;
+  font-weight:700;
+}
+div.inner input[type=submit]:hover{
+  background: #ff8300;
+}
+div.required,
+div.option{
+  margin:auto 0;
+  text-align:right;
+  width:30%;
+}
+div.required label,
+div.option label{
+  display:block;
+  margin-bottom:2%;
+}
+div.required p{
+  color:#fff;
+  background:#fb3b6f;
+  padding:2px 5px;
+  border-radius:2px;
+  width:35px;
+  margin:0 0 0 auto;
+}
+div.option p{
+  color:#fff;
+  background:#3ba1fb;
+  padding:2px 5px;
+  border-radius:2px;
+  width:35px;
+  margin:0 0 0 auto;
+}
+
+div.item{
+  padding:5px 0;
+  border-bottom:1px solid #ccc;
+  display:flex;
+}
+div.clump{
+  width:65%;
+  padding:1%;
+  margin:2% 1%;
+}
+div.j_h_subject,
+div.h_subject
+div.special_subject{
+  width:100%;
+  display:block;
+}
+p.subject_title{
+  margin:10px 2% 0 2%;
+  padding-bottom:2px;
+  border-bottom:1px solid #333;
+}
+div.items span{
+  width:auto;
+  display:inline-block;
+}
+div.items:first-child{
+  padding:5px 0;
+  border-top:1px solid #ccc;
+  border-bottom:1px solid #ccc;
+}
+div.items input[type="date"],
+div.items input[type="text"],
+div.items input[type="email"],
+div.items input[type="password"],
+div.items textarea{
+  width:65%;
+  padding:1%;
+  margin:2% 1%;
+}
+div.items input[type="number"]{
+  width:65%;
+  padding:1%;
+  margin:2% 1%;
+}
+div.link_items{
+  width:33%;
+  padding:0 1%;
+  margin:1% 0;
+}
+div.link_items label{
+  text-align:center;
+  display:block;
+}
+div.link_items2{
+  width:33%;
+  padding:0 1%;
+  margin:1% 0;
+  display:flex;
+}
+div.item p{
+  padding: 0 1%;
+}
+div.link_items2 label{
+  text-align:center;
+}
+div.link_items input[type="text"]{
+  width:96%;
+  padding:1% 0;
+  margin:1% 0;
+}
+div.link_names{
+  width:33%;
+  padding:0 1%;
+  margin:1% 0;
+}
+div.link_names label{
+  text-align:left;
+  display:block;
+}
+div.link_names input[type="text"]{
+  width:96%;
+  padding:1% 0;
+  margin:1% 0;
+}
+div.link_item{
+  width:70%;
+  padding:1%;
+  margin:0;
+}
+div.link_item input[type="text"],
+div.link_item input[type="date"],
+div.link_item input[type="email"],
+div.link_item input[type="password"],
+div.link_item textarea{
+  width:94%;
+  padding:1% 2%;
+  margin:1%;
+}
+div.link_item select{
+  width:99%;
+  padding:1% 2%;
+  margin:1%;
+}
+div.link_item p{
+  font-size:12px;
+  padding:0 1%;
+}
+div.radios{
+  display:flex;
+  width:70%;
+  margin:0 auto;
+  align-items:center;
+  text-align:center;
+}
+div.radios2{
+  display:flex;
+  width:100%;
+  align-items:center;
+  text-align:center;
+}
+div.radio{
+  width:50%;
+  text-align:center;
+  display:inline;
+}
+div.radio_contet{
+  margin:0 auto;
+}
+form button,
+form input[type="submit"].submit{
+  width:50%;
+  background: #ffa035;
+  border:none;
+  border-radius:5px;
+  padding:5px 5px;
+  margin:20px 25%;
+  font-size:20px;
+  color:white;
+  font-weight:700;
+}
+form button:hover,
+form input[type="submit"].submit:hover{
+  background: #ff8300;
+}
+p.error_message{
+  font-size:12px;
+  color:red;
+  padding:0 1%;
+}
+table td{
+  display:table-cell;
+  vertical-align:middle;
+}
+table td input[type="text"]{
+  width:80%;
+  height:20px;
+  padding:5px;
+}

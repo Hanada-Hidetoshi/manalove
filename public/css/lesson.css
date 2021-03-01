@@ -1,0 +1,23 @@
+/* 各セクションの設定 */
+div.recent_lesson,div.performance{
+  width:92%;
+  padding:2%;
+  margin:2%;
+  border-radius:10px;
+  background-color:#DFF2FC;
+}
+/* 次回のレッスンの設定 */
+div.recent_lesson p{
+  padding:5px 0;
+}
+/* レッスン実績の設定 */
+div.performance table{
+  width:100%;
+}
+div.performance table tr{
+  text-align:center;
+  border-bottom:1px #333 solid;
+}
+div.performance table tr th,div.performance table tr td{
+  padding:3px 0;
+}

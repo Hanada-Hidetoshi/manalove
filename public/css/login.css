@@ -1,0 +1,84 @@
+h2{
+  padding-top:115px;
+  font-size:20px;
+  margin:0 10% 20px 10%;
+}
+/* ログインフォーム部分の設定 */
+div.loginform{
+  width:30%;
+  max-width:1200px;
+  border:solid 1px black;
+  margin-left:10%;
+  padding:2% 5%;
+  border-radius:5px;
+}
+div.member_regist{
+  width:30%;
+  max-width:1200px;
+  margin-right:10%;
+  padding:0 5%;
+}
+div.form_unit{
+  margin:20px 0;
+}
+div.error_text{
+  color:red;
+}
+input[type="text"],
+input[type="password"]{
+  width:95%;
+  font-size:14px;
+  padding:2.5%;
+}
+div.loginform button,
+div.loginform input[type="submit"]{
+  width:100%;
+  background: #ffa035;
+  border:none;
+  border-radius:5px;
+  padding:5px 0;
+  margin-bottom:20px;
+}
+div.loginform button a,
+div.loginform input[type="submit"]{
+  text-decoration: none;
+  font-size:20px;
+  color:white;
+  font-weight:700;
+  display:block;
+}
+div.loginform button:hover,
+div.loginform input[type="submit"]:hover{
+  background: #ff8300;
+}
+div.loginform a{
+  font-size:13px;
+}
+/* 新規会員登録部分の設定 */
+div.member_regist button{
+  width:100%;
+  background: #87befd;
+  border:none;
+  border-radius:5px;
+  padding:5px 0;
+}
+div.member_regist button a{
+  display: block;
+  text-decoration: none;
+  font-size:20px;
+  color:white;
+  font-weight:700;
+}
+div.member_regist button:hover{
+  background: #668ad8;
+}
+div.regist_text p{
+  font-size:13px;
+}
+div.regist_text{
+  padding:0 0 20px 0;
+}
+div.buttons p{
+  margin-top:10px;
+  font-size:15px;
+}

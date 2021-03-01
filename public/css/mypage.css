@@ -1,0 +1,61 @@
+/* firstsection（次回レッスン・お知らせ）の設定 */
+section.first{
+  width:100%;
+  display: flex;
+}
+div.information{
+  width:56%;
+  margin:2%;
+  padding:20px;
+  border-radius:10px;
+  background-color:#DFF2FC;
+}
+div.information table tr{
+  text-align:center;
+  border-bottom:1px #333 solid;
+}
+div.information table tr td,div.information table tr th{
+  padding:3px 0;
+}
+div.next_lesson{
+  width:36%;
+  padding:20px;
+  margin:2%;
+  border-radius:10px;
+  background-color:#DFF2FC;
+}
+div.next_lesson p{
+  padding:5px 0;
+}
+/* secondsection（学習ログ）の設定 */
+section.second{
+  width:100%;
+}
+div.study_log{
+  margin:2%;
+  padding:2%;
+  border-radius:10px;
+  background-color:#DFF2FC;
+}
+div.weekly_study_log{
+  display:flex;
+}
+div.days{
+  width:14%;
+  text-align:center;
+  padding:0 1%;
+}
+div.days + div.days{
+  border-left: 1px solid #333;
+}
+div.days label{
+  display:block;
+  margin:5px 0;
+}
+div.days p{
+  font-size:14px;
+  border:1px solid #333;
+  padding:2px;
+  border-radius:10px;
+  margin:5px 0;
+}

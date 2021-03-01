@@ -1,0 +1,25 @@
+h2{
+    width:100%;
+    max-width:1000px;
+    margin:20px auto;
+    font-size:20px;
+}
+div.teachers{
+    width:100%;
+    max-width:1000px;
+    margin:0 auto;
+    display:flex;
+}
+div.teacher{
+    width:30%;
+    margin:0 auto;
+    padding:10px;
+    border-radius:3px;
+    border:solid 1px black;
+}
+div.teacher_container{
+    display:flex;
+}
+div.teacher_information h3{
+    font-size:20px;
+}

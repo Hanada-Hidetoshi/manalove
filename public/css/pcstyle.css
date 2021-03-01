@@ -1,0 +1,187 @@
+/* body全体の設定 */
+body{
+  font-family: FontAwesome;
+}
+/*header全体の設定*/
+header{
+  background:#fff;
+  position:fixed;
+  height:110px;
+  box-sizing: border-box;
+  width:100%;
+  z-index:1;
+}
+div.header{
+  height:auto;
+  display:flex;
+  height:60%;
+  align-items: center;
+}
+/* h1設定 */
+div.header h1{
+  width:300px;
+}
+h1 a{
+  text-decoration: none;
+  color:blue;
+}
+h1 a:hover{
+  color:#3879D9;
+}
+h1 img{
+  width: auto;
+  height: 62px;
+  padding-left: 30px;
+}
+/* 検索欄設定 */
+div.search{
+  width:55%;
+  display: flex;
+}
+div.keyword_search,div.conditional_search{
+  margin:5px;
+}
+form.keyword_search_form,form.conditional_search_form{
+  border: 1px solid #999;
+  display: flex;
+  padding: 3px 2px;
+  border-radius: 15px;
+  width: 170px;
+  padding:5px;
+}
+div.keyword_search input[type="text"],div.conditional_search select{
+  display:flex;
+  width:150px;
+  border: none;
+  padding:2px;
+}
+div.keyword_search input[type="text"]:focus,div.conditional_search select:focus {
+  outline: 0;
+}
+div.keyword_search input[type="submit"],div.conditional_search input[type="submit"]{
+  font-family: FontAwesome;
+  border: none;
+  background: none;
+  color: blue;
+  outline : none;
+  font-size:15px;
+}
+div.keyword_search input[type="submit"]:hover,div.conditional_search input[type="submit"]:hover{
+  color:#3879D9;
+}
+li a,p a,td a{
+  text-decoration: none;
+  color:blue;
+}
+li a:hover,p a:hover,td a:hover{
+  color:#3879D9;
+}
+/* アカウント詳細欄設定 */
+div.account{
+  width:30%;
+}
+div.account ul{
+  display: flex;
+  float:right;
+  text-align:center;
+}
+div.account li{
+  padding:0 10px;
+  list-style-type: none;
+  background-color: #fff;
+  color: #000;
+  flex-grow: 1;
+  text-align: center;
+}
+div.account li + li{
+  border-left: 1px solid #333;
+}
+/* グローバルナビゲージョンの設定 */
+nav{
+  width:100%;
+  background-color:#DFF2FC;
+  align-items: center;
+  vertical-align:middle;
+}
+nav ul{
+  padding:15px 0;
+  width:100%;
+  display:flex;
+}
+nav ul li{
+  text-align: center;
+  width:20%;
+}
+nav ul li+li{
+  border-left: 1px solid #333;
+}
+/* header以下の設定 */
+div.container{
+  display: flex;
+}
+/* main設定 */
+main{
+  box-sizing: border-box;
+  margin-left: 220px;
+  width:100%;
+  padding-top:112px;
+}
+div.section_title{
+  border-bottom:1px solid #333;
+  font-size:20px;
+}
+/* aside設定 */
+aside{
+  position: fixed;
+  box-sizing: border-box;
+  height: 85%;
+  top:110px;
+  width:220px;
+  overflow: auto;
+  background: #eee;
+}
+/* account部分の設定 */
+div.account_info{
+  height:auto;
+  text-align:center;
+}
+div.account_info img{
+  margin-top:30px;
+  width:128px;
+  height:128px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+div.account_info p{
+  margin:20px 0;
+}
+/* 生徒メニュー以下の設定 */
+div.menu{
+  margin:0 20px;
+}
+div.label{
+  width:100%;
+  border-bottom: 1px solid #999;
+}
+div.menu ul{
+  margin:20px 0;
+}
+div.menu a{
+  display: block;
+  width:100%;
+  padding:5px 0;
+}
+div.menu a span{
+  font-size:20px;
+  float:right;
+}
+footer{
+  font-size:20px;
+  text-align:center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding:15px 0; 
+  z-index:-1;
+  background:#DFF2FC;
+}

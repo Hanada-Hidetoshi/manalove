@@ -1,0 +1,121 @@
+/* メッセージ送信部分の設定 */
+div.message_form{
+  text-align:center;
+}
+textarea {
+  width:94%;
+  max-width:1000px;
+	margin:0px 1%;
+	padding: 1%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  height:70px;
+}
+div.message_post{
+  text-align:center;
+}
+div.message_post input[type="submit"] {
+  padding: 5px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  background-color: #37a1e5;
+}
+div.message_post input[type="submit"]:hover,
+button:hover {
+  background-color: #2392d8;
+}
+.success_message {
+  margin-bottom: 20px;
+  padding: 10px;
+  color: #48b400;
+  border-radius: 10px;
+  border: 1px solid #4dc100;
+}
+.error_message {
+  margin-bottom: 20px;
+  padding: 10px;
+  color: #ef072d;
+  list-style-type: none;
+  border-radius: 10px;
+  border: 1px solid #ff5f79;
+}
+.success_message,
+.error_message li {
+  font-size: 86%;
+  line-height: 1.6em;
+}
+/* メッセージ部分の設定 */
+div.message_title{
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+/* 共通設定 */
+div.message_info{
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 10px 0;
+  font-family: "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","Helvetica Neue", "Lucida Sans Unicode", "Arial";
+  font-size: 16px;
+  color: #333;
+  line-height: 1.4;
+  overflow: hidden;
+}
+div.message_info div.left + div.left::after,
+div.message_info div.right + div.right::after {
+  content: none;
+}
+div.speech_bubble {
+  position: relative;
+  display: inline-block;
+  width:auto;
+  max-width: 500px;
+  margin: 8px 0 0;
+  padding: 9px 14px;
+  border-radius: 19px;
+}
+div.speech_bubble::after {
+  position: absolute;
+  content: "";
+  width: 24px;
+  height: 36px;
+  top: -21px;
+}
+div.post_message_info time{
+  font-size:10px;
+}
+/* 相手が発言した時の設定 */
+div.post_message_info.left{
+  display:flex;
+  align-items:flex-end;
+}
+div.speech_bubble.left {
+  float: left;
+  margin-left: 12px;
+  background:#DFF2FC;
+}
+div.speech_bubble.left:after {
+  left: -10px;
+  border-radius: 18px 0 6px 18px/18px 0 1px 18px;
+  box-shadow: -3px -15px 0 -5px #DFF2FC inset;
+}
+/* 自分が発言した時の設定 */
+div.post_message_info.right{
+  display: flex;
+  align-items:flex-end;
+}
+div.post_message_info.right time{
+  margin: 0 0 0 auto;
+}
+div.speech_bubble.right {
+  margin-right: 12px;
+  background: #7adc40;
+}
+.speech_bubble.right::after {
+  right: -10px;
+  border-radius: 0 18px 18px 6px/0 18px 18px 1px;
+  box-shadow: 3px -15px 0 -5px #7adc40 inset;
+}
