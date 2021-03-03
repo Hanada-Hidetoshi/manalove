@@ -14,7 +14,6 @@ class AddUserIdToUserDatassTable extends Migration
     public function up()
     {
         Schema::table('user_datas', function (Blueprint $table) {
-           $table->string('user_id',50)->nullable(); 
         });
     }
 

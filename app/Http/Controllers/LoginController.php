@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Models\UserData;
+use Session;
 
 class LoginController extends Controller
 {
@@ -27,37 +28,38 @@ class LoginController extends Controller
         $validated = $validator->validate();
         $user = new UserData;
         $return = $user->loginValidate($request);
-        $id = \App\Models\UserData::where('user_id',$user_id)->where('password',$password)->value('id');
+        $userdata = \App\Models\UserData::where('user_id',$user_id)->where('password',$password)->first();
         if($return){
-            return redirect()->route('mypage',['id'=>$id]);
+            session([
+                'id' => $userdata['id'],
+                'user_id' => $userdata['user_id'],
+                'user_attribute' => $userdata['user_attribute'],
+                'view_name' => $userdata['view_name']
+                ]);
+            return redirect()->route('mypage');
         }else{
             $process_message ='ユーザーIDかパスワードが違います';
             return view('login',compact('validator','process_message','user_id','password'));
         }
-        // if (Auth::attempt($credentials)) {
-        //     // Authentication passed...
-        //     return redirect('/mypage');
-        // }else{
-        //     return view('login',compact('validator'));
-        // }
     }
     function logout(Request $request){
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        session()->flush();
         $process_message ='ログアウトしました';
         return view('/login',compact('process_message'));
     }
     function adminlogin(){
-        return view('login');
+        $user_id = "";
+        $password = "";
+        return view('login',compact('user_id','password'));
     }
     function adminpostlogin(Request $request){
-        $rules =[
-            'user_id' => 'required|max:50',
-            'password' => 'required|between:8,20',
-        ];
-        $validator = Validator::make($request->all(), $rules);
-        $validated = $validator->validate();
-        return view('login',compact('validator'));
+        $user_id = $request->user_id;
+        $password = $request->password;
+        if($user_id==='superuser'&&$password==='superuser'){
+            return redirect('/admin/mypage');
+        }else{
+            $process_message ='ユーザーIDかパスワードが違います';
+            return view('login',compact('process_message','user_id','password'));
+        }
     }
 }

@@ -1,25 +1,67 @@
 h2{
-    width:100%;
-    max-width:1000px;
-    margin:20px auto;
-    font-size:20px;
+  width:100%;
+  max-width:1000px;
+  margin:20px auto;
+  font-size:20px;
 }
 div.teachers{
-    width:100%;
-    max-width:1000px;
-    margin:0 auto;
-    display:flex;
+  width:100%;
+  max-width:1000px;
+  margin:0 auto;
+  display:flex;
+  flex-wrap: wrap;
 }
-div.teacher{
-    width:30%;
-    margin:0 auto;
-    padding:10px;
-    border-radius:3px;
-    border:solid 1px black;
+a.teacher{
+  width:45%;
+  text-decoration: none;
+  color:black;
+  background-color:white;
+  margin:10px auto;
+  padding:10px;
+  border-radius:5px;
+  border:solid 2px black;
+}
+a.teacher:hover{
+  border:2px solid blue;
+  box-shadow:0px 0px 3px;
 }
 div.teacher_container{
-    display:flex;
+  display:flex;
 }
 div.teacher_information h3{
-    font-size:20px;
+  font-size:20px;
+  font-weight:400;
+  margin-bottom:10px;
+}
+p.hour_pays{
+  position:relative;
+  width:140px;
+  top:-21px;
+  font-size:15px;
+  margin:0;
+  padding:2px 5px;
+  color:#fff;
+  background-color:rgba(0, 0, 255, 0.3) ;
+}
+a.teacher img{
+  width:150px;
+  height:150px;
+  margin:0 auto;
+  align-items: center;
+}
+div.teacher_image{
+  width:150px;
+  height:150px;
+}
+div.matching{
+  text-align:center;
+}
+div.matching a{
+  width:100%;
+  text-decoration: none;
+  color:white;
+  background-color:blue;
+  padding:5px 15px;
+  text-align:center;
+  border-radius:5px;
 }

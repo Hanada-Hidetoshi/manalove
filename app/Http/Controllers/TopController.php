@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\UserData;
 use App\Models\SubjectData;
+use Session;
 
 class TopController extends Controller
 {
@@ -15,6 +16,7 @@ class TopController extends Controller
         $s_subjects = \App\Models\SubjectData::where('classfication', 4)->get();
         $creates = \App\Models\UserData::where('user_attribute', 0)->orderBy('created_at', 'desc')->take(3)->get();
         $updates = \App\Models\UserData::where('user_attribute', 0)->orderBy('updated_at', 'desc')->take(3)->get();
-        return view('top',compact('creates','updates','p_subjects','j_h_subjects','h_subjects','s_subjects'));
+        $specials = \App\Models\UserData::where('user_attribute', 0)->whereNotNull('s_subject')->orderBy('updated_at', 'desc')->take(3)->get();
+        return view('top',compact('creates','updates','specials','p_subjects','j_h_subjects','h_subjects','s_subjects'));
     }
 }

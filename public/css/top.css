@@ -162,7 +162,7 @@ div.teachers{
 @media (min-width: 800px){
   div.teacher_container{
     display:flex;
-    height:150px;
+    height:auto;
   }
 }
 @media (max-width: 800px){
@@ -171,22 +171,25 @@ div.teachers{
     height:150px;
   }
 }
-div.teacher{
+a.teacher{
   width:30%;
-  border:1px solid blue;
+  border:2px solid #DFF2FC;;
   padding:10px;
   margin:0 15px;
   text-decoration: none;
   border-radius:20px;
   color:black;
   background-color:white;
+}
+a.teacher:hover{
+  border:2px solid blue;
   box-shadow:0px 0px 3px;
 }
 div.teacher_information h3{
   font-size:20px;
   font-weight:400;
 }
-div.teacher img{
+a.teacher img{
   width:150px;
   height:150px;
   margin:0 auto;

@@ -5,7 +5,11 @@
         <div class="frame">
           <h1>アカウント情報</h1>
           <div class="inner">
-            <form action="/regist/confirm" method="post">
+            @if(request()->is('*change*'))
+              <form method="post" action="/profilchange/confirm">
+              @csrf
+            @else
+              <form action="/regist/confirm" method="post">
               @csrf
               <input type="hidden" name="attribute" value="{{old('attribute',$attribute ?? '')}}">
               @if($attribute ==='student')
@@ -13,6 +17,7 @@
               @elseif($attribute ==='teacher')
                 <input type="hidden" name="user_attribute" value=0>
               @endif
+            @endif
               <div class="items">
                 <div class="required">
                   <label for="name">氏名</label>
@@ -302,26 +307,26 @@
                   <div class="subjects">
                     <div class="j_h_subject">
                       <p class="subject_title">小学科目</p>
-                      @foreach($p_subjects as $p_subject)
-                        <span><input type="checkbox" name="subjects[]" id={{$p_subject['id']}} value="{{$p_subject['id']}}" {{ is_array(old("subjects"))&&in_array({{$p_subject['id']}}, old("subjects"), true)? 'checked="checked"' : '' }}>{{$p_subject['subject_name']}}</span>
+                      @foreach($primarys as $primary)
+                        <span><input type="checkbox" name="p_subjects[]" id={{$primary['id']}} value="{{$primary['subject_name']}}" {{ is_array(old("p_subjects"))&&in_array($primary['id'],old("p_subjects"), true)? 'checked="checked"' : '' }}>{{$primary['subject_name']}}</span>
                       @endforeach
                     </div>
                     <div class="j_h_subject">
                       <p class="subject_title">中学科目</p>
-                      @foreach($j_h_subjects as $j_h_subject)
-                        <span><input type="checkbox" name="subjects[]" id={{$j_h_subject['id']}} value="{{$j_h_subject['id']}}" {{ is_array(old("subjects"))&&in_array({{$p_subject['id']}}, old("subjects"), true)? 'checked="checked"' : '' }}>{{$j_h_subject['subject_name']}}</span>
+                      @foreach($juniorhighs as $juniorhigh)
+                        <span><input type="checkbox" name="j_h_subjects[]" id={{$juniorhigh['id']}} value="{{$juniorhigh['subject_name']}}" {{ is_array(old("j_h_subjects"))&&in_array($juniorhigh['id'], old("j_h_subjects"), true)? 'checked="checked"' : '' }}>{{$juniorhigh['subject_name']}}</span>
                       @endforeach
                     </div>
                     <div class="h_subject">
                       <p class="subject_title">高校科目</p>
-                      @foreach($h_subjects as $h_subject)
-                        <span><input type="checkbox" name="subjects[]" id={{$h_subject['id']}} value="{{$h_subject['id']}}" {{ is_array(old("subjects"))&&in_array({{$p_subject['id']}}, old("subjects"), true)? 'checked="checked"' : '' }}>{{$h_subject['subject_name']}}</span>
+                      @foreach($highs as $high)
+                        <span><input type="checkbox" name="h_subjects[]" id={{$high['id']}} value="{{$high['subject_name']}}" {{ is_array(old("subjects"))&&in_array($high['id'], old("h_subjects"), true)? 'checked="checked"' : '' }}>{{$high['subject_name']}}</span>
                       @endforeach
                     </div>
                     <div class="special_subject">
                      <p class="subject_title">専門科目</p>
-                      @foreach($s_subjects as $s_subject)
-                        <span><input type="checkbox" name="subjects[]" id={{$s_subject['id']}} value="{{$s_subject['id']}}" {{ is_array(old("subjects"))&&in_array({{$p_subject['id']}}, old("subjects"), true)? 'checked="checked"' : '' }}>{{$s_subject['subject_name']}}</span>
+                      @foreach($specials as $special)
+                        <span><input type="checkbox" name="s_subjects[]" id={{$special['id']}} value="{{$special['subject_name']}}" {{ is_array(old("s_subjects[]"))&&in_array($pecial['id'], old("s_subjects"), true)? 'checked="checked"' : '' }}>{{$special['subject_name']}}</span>
                       @endforeach
                     </div> 
                   </div>

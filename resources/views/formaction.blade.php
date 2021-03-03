@@ -166,17 +166,24 @@
                 <div class="clump">
                   <div class="subjects">
                     <div class="j_h_subject">
-                      <input type="hidden" name="subjects" value="{{$subjects ??$data['subjects']}}">
-                      <p class="subject_title">小・中科目：</p>
-                      <p>{{$subjects??$data['subjects']}}</p>
+                      <input type="hidden" name="p_subjects" value="{{$p_subjects ??$data['p_subjects']}}">
+                      <p class="subject_title">小学科目：</p>
+                      <p>{{$p_subjects??$data['p_subjects']}}</p>
+                    </div>
+                    <div class="j_h_subject">
+                      <input type="hidden" name="j_h_subjects" value="{{$j_h_subjects ??$data['j_h_subjects']}}">
+                      <p class="subject_title">中学科目：</p>
+                      <p>{{$j_h_subjects??$data['j_h_subjects']}}</p>
                     </div>
                     <div class="h_subject">
+                      <input type="hidden" name="h_subjects" value="{{$j_h_subjects ??$data['h_subjects']}}">
                       <p class="subject_title">高校科目：</p>
-                      <p>{{$subjects??$data['subjects']}}</p>
+                      <p>{{$h_subjects??$data['h_subjects']}}</p>
                     </div>
                     <div class="special_subject">
+                      <input type="hidden" name="s_subjects" value="{{$s_subjects ??$data['s_subjects']}}">
                       <p class="subject_title">専門科目：</p>
-                      <p>{{$subjects??$data['subjects']}}</p>
+                      <p>{{$s_subjects??$data['s_subjects']}}</p>
                     </div>
                   </div>
                 </div>

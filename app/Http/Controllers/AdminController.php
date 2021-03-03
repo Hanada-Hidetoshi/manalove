@@ -10,6 +10,7 @@ use App\Models\SubjectData;
 use App\Models\StudyLog;
 use Carbon\Carbon;
 use lluminate\Database\Eloquent\Builder;
+use Session;
 
 class AdminController extends Controller
 {
@@ -137,7 +138,10 @@ class AdminController extends Controller
             'liberal' => $request->liberal,
             'j_h_exam' => $request->j_h_exam,
             'h_exam' => $request->h_exam,
-            'subjects' => $request->subject,
+            'p_subjects' => $request->p_subjects,
+            'j_h_subjects' => $request->j_h_subjects,
+            'h_subjects' => $request->h_subjects,
+            's_subjects' => $request->s_subjects,
             'hour_pays' => $request->hour_pays,
             'comment' => $request->comment
         ];
@@ -170,7 +174,10 @@ class AdminController extends Controller
                 'liberal' =>'required|numeric',
                 'j_h_exam' =>'required|numeric',
                 'h_exam' =>'required|numeric',
-                'subjects' => 'nullable|array',
+                'p_subjects' => 'nullable|array',
+                'j_h_subjects' => 'nullable|array',
+                'h_subjects' => 'nullable|array',
+                's_subjects' => 'nullable|array',
                 'hour_pays' => 'nullable|numeric',
             ];
             $rules = array_merge($commonrules , $teacherrules);
@@ -186,13 +193,38 @@ class AdminController extends Controller
     }
     function complete(Request $request){
         $data = $this->postdata($request);
-        $subjects = "";
+        $p_subjects = "";
+        $j_h_subjects ="";
+        $h_subjects ="";
+        $s_subjects ="";
         $spl = "";
-        if (isset($data['subjects'])) {
-            foreach($data['subjects'] as $val){
-                $subjects = $subjects . $spl . $val;
+        if (isset($data['p_subjects'])) {
+            foreach($data['p_subjects'] as $val){
+                $p_subjects = $p_subjects . $spl . $val;
                 $spl = ",";
             }
+            $spl = "";
+        }
+        if (isset($data['j_h_subjects'])) {
+            foreach($data['j_h_subjects'] as $val){
+                $j_h_subjects = $j_h_subjects . $spl . $val;
+                $spl = ",";
+            }
+            $spl = "";
+        }
+        if (isset($data['h_subjects'])) {
+            foreach($data['h_subjects'] as $val){
+                $h_subjects = $h_subjects . $spl . $val;
+                $spl = ",";
+            }
+            $spl = "";
+        }
+        if (isset($data['s_subjects'])) {
+            foreach($data['s_subjects'] as $val){
+                $s_subjects = $s_subjects . $spl . $val;
+                $spl = ",";
+            }
+            $spl = "";
         }
         $now = Carbon::now('Asia/Tokyo');
         DB::table('user_datas')->where('id',$request->id)->update([
@@ -214,7 +246,10 @@ class AdminController extends Controller
             'liberal' => $data['liberal'],
             'j_h_exam' => $data['j_h_exam'],
             'h_exam' => $data['h_exam'],
-            'subjects' => $subjects,
+            'p_subject' => $data['p_subjects'],
+            'j_h_subject' => $data['j_h_subjects'],
+            'h_subject' => $data['h_subjects'],
+            's_subject' => $data['s_subjects'],
             'hour_pays' => $data['hour_pays'],
             'comment' => $data['comment'],
             'updated_at' => $now

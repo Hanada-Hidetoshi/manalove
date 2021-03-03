@@ -29,13 +29,15 @@ use App\Http\Controllers\SearchController;
 // Route::get('/', function () {
 //     return view('sample');
 // });
-Auth::routes();
 Route::get('/', [TopController::class,'index']);
-Route::get('/login', [LoginController::class,'login']);
+Route::get('/mypage', [MypageController::class,'index'])->name('mypage');
+Route::get('/login', [LoginController::class,'login'])->name('login');
 Route::post('/login', [LoginController::class,'postlogin']);
 Route::get('/logout', [LoginController::class,'logout']);
 Route::get('/account_info', [AccountController::class,'index']);
 Route::get('/contact', [ContactController::class,'index']);
+Route::get('/profile', [AccountController::class,'myprofile']);
+Route::post('/profile/change', [AccountController::class,'profilechange']);
 Route::prefix('regist')->group(function () {
     Route::get('/student',[FormController::class,'student']);
     Route::get('/teacher',[FormController::class,'teacher']);
@@ -44,11 +46,12 @@ Route::prefix('regist')->group(function () {
 });
 Route::prefix('teachers')->group(function () {
     Route::get('/', [SearchController::class,'teachers']);
-    Route::get('/profile/{id}', [SearchController::class,'teacherprofile']);
+    Route::get('/profile/{id}', [AccountController::class,'profile']);
+    Route::get('/profile/{id}/matching', [AccountController::class,'matching']);
 });
 Route::prefix('students')->group(function () {
     Route::get('/', [SearchController::class,'students']);
-    Route::get('/profile/{id}', [SearchController::class,'studentprofile']);
+    Route::get('/profile/{id}', [AccountController::class,'profile']);
 });
 Route::get('/lesson', [LessonController::class,'index']);
 Route::get('/message', [MessageController::class,'index']);
@@ -58,7 +61,7 @@ Route::get('/study_log_data', [StudyController::class,'index']);
 Route::get('/test_results', [TestController::class,'index']);
 Route::prefix('admin')->group(function () {
     Route::get('/', [LoginController::class,'adminlogin']);
-    Route::post('/', [LoginController::class,'adminpostlogin']);
+    Route::post('/', [LoginController::class,'adminpostlogin'])->name('admin');
     Route::get('/mypage',[AdminController::class,'index']);
     Route::get('/students',[AdminController::class,'students']);
     Route::get('/teachers',[AdminController::class,'teachers']);
@@ -73,7 +76,4 @@ Route::prefix('admin')->group(function () {
     Route::get('/subjects/complete',[AdminController::class,'subject_complete']);
     Route::get('/performances',[AdminController::class,'performances']);
     Route::get('/study_logs',[AdminController::class,'studylogs']);
-});
-Route::prefix('{id}')->group(function () {
-    Route::get('/mypage', [MypageController::class,'index'])->name('mypage');
 });

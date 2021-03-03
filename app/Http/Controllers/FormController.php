@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Models\SubjectData;
+use Session;
 
 class FormController extends Controller
 {
@@ -15,12 +16,12 @@ class FormController extends Controller
         return view('regist',compact('attribute'));
     }
     function teacher(){
-        $p_subjects = \App\Models\SubjectData::where('classfication', 1)->get();
-        $j_h_subjects = \App\Models\SubjectData::where('classfication', 2)->get();
-        $h_subjects = \App\Models\SubjectData::where('classfication', 3)->get();
-        $s_subjects = \App\Models\SubjectData::where('classfication', 4)->get();
+        $primarys = \App\Models\SubjectData::where('classfication', 1)->get();
+        $juniorhighs = \App\Models\SubjectData::where('classfication', 2)->get();
+        $highs = \App\Models\SubjectData::where('classfication', 3)->get();
+        $specials = \App\Models\SubjectData::where('classfication', 4)->get();
         $attribute = 'teacher';
-        return view('regist',compact('attribute','p_subjects','j_h_subjects','h_subjects','s_subjects'));
+        return view('regist',compact('attribute','primarys','juniorhighs','highs','specials'));
     }
     function postdata(Request $request){
         $data = [
@@ -43,7 +44,10 @@ class FormController extends Controller
             'liberal' => $request->liberal,
             'j_h_exam' => $request->j_h_exam,
             'h_exam' => $request->h_exam,
-            'subjects' => $request->subjects,
+            'p_subjects' => $request->p_subjects,
+            'j_h_subjects' => $request->j_h_subjects,
+            'h_subjects' => $request->h_subjects,
+            's_subjects' => $request->s_subjects,
             'hour_pays' => $request->hour_pays,
             'comment' => $request->comment
         ];
@@ -54,13 +58,13 @@ class FormController extends Controller
             'attribute' => 'required|max:50',
             'last_name' => 'required|max:50',
             'first_name' => 'required|max:50',
-            'last_name_fri' => 'required|max:50',
-            'first_name_fri' => 'required|max:50',
+            'last_name_fri' => 'required|max:50|kana',
+            'first_name_fri' => 'required|max:50|',
             'birth_day'  => 'required|date',
             'prefecture' => 'required|max:50',
             'view_name' => 'required|max:50',
             'email' => 'required|email',
-            'user_id' => 'required|max:50|unique:user_datas,user_id',
+            'user_id' => 'required|max:50|alpha_num|unique:user_datas,user_id',
             'password' => 'required|between:8,20|confirmed',
             'user_attribute' => 'required|max:50',
             'comment' => 'string|nullable'
@@ -78,7 +82,10 @@ class FormController extends Controller
                 'liberal' =>'required|numeric',
                 'j_h_exam' =>'required|numeric',
                 'h_exam' =>'required|numeric',
-                'subjects' => 'nullable|array',
+                'j_h_subjects' => 'nullable|array',
+                'p_subjects' => 'nullable|array',
+                'h_subjects' => 'nullable|array',
+                's_subjects' => 'nullable|array',
                 'hour_pays' => 'nullable|numeric',
             ];
             $rules = array_merge($commonrules , $teacherrules);
@@ -90,15 +97,40 @@ class FormController extends Controller
         $rules = $this->validationrules($request);
         $validator = Validator::make($request->all(), $rules);
         $validated = $validator->validate();
-        $subjects = "";
+        $p_subjects = "";
+        $j_h_subjects ="";
+        $h_subjects ="";
+        $s_subjects ="";
         $spl = "";
-        if (isset($data['subjects'])) {
-            foreach($data['subjects'] as $val){
-                $subjects = $subjects . $spl . $val;
+        if (isset($data['p_subjects'])) {
+            foreach($data['p_subjects'] as $val){
+                $p_subjects = $p_subjects . $spl . $val;
                 $spl = ",";
             }
+            $spl = "";
         }
-        return view('formaction', compact('data','subjects'));
+        if (isset($data['j_h_subjects'])) {
+            foreach($data['j_h_subjects'] as $val){
+                $j_h_subjects = $j_h_subjects . $spl . $val;
+                $spl = ",";
+            }
+            $spl = "";
+        }
+        if (isset($data['h_subjects'])) {
+            foreach($data['h_subjects'] as $val){
+                $h_subjects = $h_subjects . $spl . $val;
+                $spl = ",";
+            }
+            $spl = "";
+        }
+        if (isset($data['s_subjects'])) {
+            foreach($data['s_subjects'] as $val){
+                $s_subjects = $s_subjects . $spl . $val;
+                $spl = ",";
+            }
+            $spl = "";
+        }
+        return view('formaction', compact('data','p_subjects','j_h_subjects','h_subjects','s_subjects'));
     }
     function complete(Request $request){
         $data = $this->postdata($request);
@@ -123,7 +155,10 @@ class FormController extends Controller
             'liberal' => $data['liberal'],
             'j_h_exam' => $data['j_h_exam'],
             'h_exam' => $data['h_exam'],
-            'subjects' => $data['subjects'],
+            'p_subject' => $data['p_subjects'],
+            'j_h_subject' => $data['j_h_subjects'],
+            'h_subject' => $data['h_subjects'],
+            's_subject' => $data['s_subjects'],
             'hour_pays' => $data['hour_pays'],
             'comment' => $data['comment'],
             'hour_pays' => 1500,

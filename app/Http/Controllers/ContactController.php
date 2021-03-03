@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Test;
+use Session;
 
 class ContactController extends Controller
 {

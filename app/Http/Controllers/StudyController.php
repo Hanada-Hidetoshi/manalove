@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Test;
+use Session;
 
 class StudyController extends Controller
 {

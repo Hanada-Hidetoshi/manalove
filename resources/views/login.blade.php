@@ -13,11 +13,7 @@
       @if(request()->is('*login*'))
         <form action="/login" method="post">
       @elseif(request()->is('*admin*'))
-        @if(request()->method() ==='GET')
-          <form method="post" action="/admin">
-        @elseif(request()->method() ==='POST')
-          <form method="post" action="/admin/mypage">
-        @endif
+        <form method="post" action="/admin">
       @else
         <form method="post" action="/login">
       @endif

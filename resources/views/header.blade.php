@@ -74,9 +74,10 @@
           </form>
         </div>
       </div>
+    @if(Session::has('id'))
       <div class="account">
         <ul>
-          <li><a href="/account_info">◯◯さん</a></li>
+          <li><a href="/account_info">こんにちは、{{ Session::get('view_name') }}さん</a></li>
           <li><a href="/information">&#xf0f3</a></li>
           <li><a href="/message_data">&#xf003</a></li>
           <li><a href="/help">&#xf128</a></li>
@@ -91,5 +92,16 @@
         <li><a href="/lessoninfo">授業について</a></li>
         <li><a href="/logout">ログアウト</a></li>
       </ul>
+    @else
+    </div>
+    <nav>
+      <ul>
+        <li><a href="/regist/teacher">講師として登録</a></li>
+        <li><a href="/regist/student">生徒として登録</a></li>
+        <li><a href="/">ご利用について</a></li>
+        <li><a href="/">授業について</a></li>
+        <li><a href="/login">ログイン</a></li>
+      </ul>
+    @endif
     </nav>
   </header>

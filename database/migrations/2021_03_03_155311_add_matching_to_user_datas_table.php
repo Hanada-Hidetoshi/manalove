@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddClassficationNameToSubjectDatasTable extends Migration
+class AddMatchingToUserDatasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddClassficationNameToSubjectDatasTable extends Migration
      */
     public function up()
     {
-        Schema::table('subject_datas', function (Blueprint $table) {
-            $table->string('classfication_name',50)->nullable();
+        Schema::table('user_datas', function (Blueprint $table) {
+            $table->text('matching')->nullable(); 
         });
     }
 
@@ -25,7 +25,7 @@ class AddClassficationNameToSubjectDatasTable extends Migration
      */
     public function down()
     {
-        Schema::table('subject_datas', function (Blueprint $table) {
+        Schema::table('user_datas', function (Blueprint $table) {
             //
         });
     }

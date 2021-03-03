@@ -6,7 +6,7 @@
       <h2>検索結果</h2>
       <div class="teachers">
         @foreach($teachers as $teacher)
-        <div class="teacher">
+        <a class="teacher" href="/teachers/profile/{{$teacher['id']}}">
           <div class="teacher_container">
             <div class="teacher_image">
               <img src="images/account.jpeg" alt="{{$teacher['view_name']}}">
@@ -14,13 +14,13 @@
             </div>
             <div class="teacher_information">
               <h3><sapn>{{$teacher['view_name']}}</sapn>先生</h3>
-              <p class="subject">小中科目：</p><span>{{$teacher['subjects']}}</span>
-              <p class="subject">高校科目：</p><span>{{$teacher['subjects']}}</span>
-              <p class="subject">専門科目：</p><span>{{$teacher['subjects']}}</span>
+              <p class="subject">小学科目：<span>{{$teacher['p_subject']}}</span></p>
+              <p class="subject">中学科目：<span>{{$teacher['j_h_subject']}}</span></p>
+              <p class="subject">高校科目：<span>{{$teacher['h_subject']}}</span></p>
+              <p class="subject">専門科目：<span>{{$teacher['s_subject']}}</span></p>
             </div>
           </div>
-          <a href="/teachers/profile/{{$teacher['id']}}">この先生に依頼</a>
-        </div>
+        </a>
         @endforeach
       </div>
     </main>
