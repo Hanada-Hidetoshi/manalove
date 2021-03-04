@@ -143,7 +143,8 @@ class AdminController extends Controller
             'h_subjects' => $request->h_subjects,
             's_subjects' => $request->s_subjects,
             'hour_pays' => $request->hour_pays,
-            'comment' => $request->comment
+            'comment' => $request->comment,
+            'matching' => $request->matching,
         ];
         return $data;
     }
@@ -252,7 +253,8 @@ class AdminController extends Controller
             's_subject' => $data['s_subjects'],
             'hour_pays' => $data['hour_pays'],
             'comment' => $data['comment'],
-            'updated_at' => $now
+            'updated_at' => $now,
+            'matching' => $data['matching'],
         ]);
         $process_message = '下記内容にて変更完了しました。';
         return view('admins.adminformaction',compact('data','process_message'));

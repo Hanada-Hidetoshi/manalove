@@ -187,6 +187,20 @@
         </select>
       </div>
     </div>
+      <div class="item">
+        <div class="required">
+          <label for="matching">マッチング情報</label>
+          <p>必須</p>
+        </div>
+        <div class="link_item">
+        @if ($errors->has('matching'))
+          @foreach($errors->get('course') as $message)
+            <p class="error_message">{{ $message }}</p>
+          @endforeach
+        @endif
+        <input type="text" placeholder="1,2,3,4" name="matching" value="{{ old('matching',$item['matching'] ?? '') }}">
+      </div>
+    </div>
     @elseif( $item['user_attribute'] ==0)
     <!-- 講師用 -->
     <div class="item">

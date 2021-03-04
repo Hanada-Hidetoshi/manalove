@@ -100,6 +100,13 @@
           <p>浪人生・一般</p>
         @endif
       </div>
+      <div class="item">
+        <div class="required">
+          <label for="matching">マッチング情報</label>
+        </div>
+        <input type="hidden" name="matching" value="{{$data['matching']}}">
+        <p>{{$data['matching']}}</p>
+      </div>
       @elseif( $data['user_attribute'] ==0)
        <!--講師用 -->
       <div class="item">

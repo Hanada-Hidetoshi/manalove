@@ -54,8 +54,7 @@ Route::prefix('students')->group(function () {
     Route::get('/profile/{id}', [AccountController::class,'profile']);
 });
 Route::get('/lesson', [LessonController::class,'index']);
-Route::get('/message', [MessageController::class,'index']);
-Route::get('/message_data', [MessageController::class,'index2']);
+Route::get('/message_data', [MessageController::class,'index2'])->name('matching');
 Route::get('/curriculum', [CurriculumController::class,'index']);
 Route::get('/study_log_data', [StudyController::class,'index']);
 Route::get('/test_results', [TestController::class,'index']);

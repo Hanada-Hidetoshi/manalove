@@ -34,7 +34,8 @@ class LoginController extends Controller
                 'id' => $userdata['id'],
                 'user_id' => $userdata['user_id'],
                 'user_attribute' => $userdata['user_attribute'],
-                'view_name' => $userdata['view_name']
+                'view_name' => $userdata['view_name'],
+                'matching' => $userdata['matching'],
                 ]);
             return redirect()->route('mypage');
         }else{
