@@ -18,7 +18,7 @@ class CreateSubjectDatasTable extends Migration {
 			$table->integer('id', true);
 			$table->string('classfication', 20)->nullable();
 			$table->string('subject_name', 20)->nullable();
-			$table->timestamps(10);
+			$table->timestamps(6);
 		});
 	}
 

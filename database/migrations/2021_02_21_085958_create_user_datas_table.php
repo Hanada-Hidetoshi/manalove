@@ -36,7 +36,7 @@ class CreateUserDatasTable extends Migration {
 			$table->text('subjects')->nullable();
 			$table->integer('hour_pays')->nullable();
 			$table->text('comment')->nullable();
-			$table->timestamps(10);
+			$table->timestamps(6);
 		});
 	}
 

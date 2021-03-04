@@ -27,7 +27,7 @@ class CreatePerformanceDatasTable extends Migration {
 			$table->text('t_comment')->nullable();
 			$table->text('s_comment')->nullable();
 			$table->integer('performance')->nullable();
-			$table->timestamps(10);
+			$table->timestamps(6);
 		});
 	}
 

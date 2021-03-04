@@ -24,7 +24,7 @@ class CreateStudyLogsTable extends Migration {
 			$table->date('end_time')->nullable();
 			$table->date('elapsed_time')->nullable();
 			$table->text('summary')->nullable();
-			$table->timestamps(10);
+			$table->timestamps(6);
 		});
 	}
 
