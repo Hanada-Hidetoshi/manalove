@@ -1,5 +1,6 @@
 /* 各セクションの設定 */
-div.recent_lesson,div.performance{
+div.recent_lesson,
+div.performance{
   width:92%;
   padding:2%;
   margin:2%;
@@ -20,4 +21,53 @@ div.performance table tr{
 }
 div.performance table tr th,div.performance table tr td{
   padding:3px 0;
+}
+div.results_regist input[type="submit"]{
+  background: #ffa035;
+  border:none;
+  border-radius:5px;
+  padding:5px;
+  font-size:20px;
+  color:white;
+  font-weight:700;
+}
+div.results_regist input[type="submit"]:hover{
+  background: #ff8300;
+}
+div.results_regist input[type="text"],
+div.results_regist input[type="number"],
+div.results_regist select{
+  padding:5px;
+}
+input[type="datetime-local"]{
+  height:25px;
+}
+div.results_regist span{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+textarea{
+  width:100%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding:5px;
+  height:17px;
+}
+section{
+  width:90%;
+	margin:10px 4%;
+	padding: 1%;
+}
+table{
+  width:100%;
+}
+table tr{
+  text-align:center;
+}
+table th,td{
+  border-bottom:solid 1px black;
+  padding:3px 3px;
 }

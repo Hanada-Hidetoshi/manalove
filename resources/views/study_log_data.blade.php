@@ -3,61 +3,57 @@
       @include('aside')
     <main>
       <section class="first">
-        <div class="study_calender">
-          <div class="section_title">
-            <h2>学習カレンダー</h2>
-          </div>
-          <p>こんなような図</p>
-          <img src="images/githubcalender.png" alt="">
+        <div class="results_regist">
+          <table>
+            <tr>
+              <th style="width:10%">日付</th>
+              <th style="width:10%">教科</th>
+              <th style="width:10%">勉強した時間</th>
+              <th style="width:40%">内容・まとめ</th>
+              <th style="width:20%">登録</th>
+            </tr>
+            <form action="/study_logs/regist" method="post">
+              @csrf
+              <input type="hidden" name="s_id" value="{{Session::get('id')}}">
+              <input type="hidden" name="s_name" value="{{Session::get('view_name')}}">
+            <tr>
+              <th><input type="date" name="implimantation" value="<?php echo date('Y-m-d');?>"></th>
+              <th><input type="text" name="subject"></th>
+              <th><span><input type="number" name="elapsed_time">分</span></th>
+              <th><textarea name="summary"></textarea></th>
+              <th><input type="submit" value="学習ログ登録"></th>
+            </tr>
+            </form>
+          </table>
         </div>
       </section>
       <section class="second">
         <div class="study_summary">
           <div class="section_title">
-            <h2>学習サマリー</h2>
+            <h2>{{Session::get('view_name')}}さんの学習サマリー</h2>
           </div>
           <div class="summarys">
-            <div class="graph">
-              <p>ここに侍エンジニアみたいなグラフを描きたい</p>
+            <div class="study_log_data">
+              <table>
+                @foreach($items as $item)
+                <tr class="data">
+                  <td>{{$item['implimantation']}}</td>
+                  <td>{{$item['subject']}}</td>
+                  <td>{{$item['elapsed_time']}}</td>
+                  <td>{{$item['summary']}}</td>
+                  <td><a href="/study_logs/edit/{{$item['id']}}">編集</a></td>
+                  <td><a href="/study_logs/delete/{{$item['id']}}">削除</a></td>
+                </tr>
+                @endforeach
+              </table>
             </div>
             <div class="summary">
-              <p>今週<span>◯時間◯分</span></p>
-              <p>今月<span>◯時間◯分</span></p>
-              <p>合計時間<span>◯時間◯分</span></p>
-              <p>合計登録回数<span>回</span></p>
+              <p>今週<span>{{$data['w_study']}}分</span></p>
+              <p>今月<span>{{$data['m_study']}}分</span></p>
+              <p>合計時間<span>{{$data['all_study']}}分</span></p>
+              <p>合計登録回数<span>{{$data['count']}}回</span></p>
             </div>
           </div>
-        </div>
-      </section>
-      <section class="third">
-        <div class="study_log_data">
-          <div class="section_title">
-            <h2>学習ログ</h2>
-          </div>
-          <table>
-            <tr>
-              <th>日付</th>
-              <th>教科</th>
-              <th>開始時間</th>
-              <th>終了時間</th>
-              <th>勉強した時間</th>
-              <th style="width:40%">内容・まとめ</th>
-              <th style="width:5%">編集</th>
-              <th style="width:5%">削除</th>
-            </tr>
-            <div style="overflow:auto;">
-            <tr>
-              <td>2020/12/13</td>
-              <td>英語</td>
-              <td>12:00</td>
-              <td>13:00</td>
-              <td>60分</td>
-              <td>学校の単語練習、問題集</td>
-              <td><a href="/study_log/change">編集</a></td>
-              <td><a href class="delete">削除</a></td>
-            </tr>
-            </div>
-          </table>
         </div>
       </section>
     </main>

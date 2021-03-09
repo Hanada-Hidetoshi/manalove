@@ -14,6 +14,26 @@ use Session;
 
 class AdminController extends Controller
 {
+    private function regist_count($days){
+        $result ='';
+        $result = \App\Models\UserData::where('regist_day', $days)->get()->count();
+        return $result;
+    }
+    private function regist_count_attribute($days,$attribute){
+        $result ='';
+        $result = \App\Models\UserData::where('regist_day', $days)->where('user_attribute',$attribute)->get()->count();
+        return $result;
+    }
+    private function study_count($days){
+        $result ='';
+        $result = \App\Models\StudyLog::where('implimantation', $days)->get()->count();
+        return $result;
+    }
+    private function performance_count($days){
+        $result ='';
+        $result = \App\Models\PerformanceData::where('implimantation', $days)->get()->count();
+        return $result;
+    }
     function index(){
         $daydata = Carbon::today();
         $thismonth = $daydata->format("Y-m-1");
@@ -39,52 +59,52 @@ class AdminController extends Controller
         $day7 = $daydata7->format('m月d日');
         $daydata7 =$daydata->format("Y-m-d");
         $items =[
-            'today' => $day1,
-            'yesterday' => $day2,
-            'twodays_ago' => $day3,
-            'threedays_ago' => $day4,
-            'fourdays_ago' => $day5,
-            'fivedays_ago' => $day6,
-            'sixdays_ago' => $day7,
-            'day1_regist'=>\App\Models\UserData::where('regist_day', $today)->get()->count(),
-            'day2_regist'=>\App\Models\UserData::where('regist_day', $daydata2)->get()->count(),
-            'day3_regist'=>\App\Models\UserData::where('regist_day', $daydata3)->get()->count(),
-            'day4_regist'=>\App\Models\UserData::where('regist_day', $daydata4)->get()->count(),
-            'day5_regist'=>\App\Models\UserData::where('regist_day', $daydata5)->get()->count(),
-            'day6_regist'=>\App\Models\UserData::where('regist_day', $daydata6)->get()->count(),
-            'day7_regist'=>\App\Models\UserData::where('regist_day', $daydata7)->get()->count(),
+            'day0_ago' => $day1,
+            'day1_ago' => $day2,
+            'day2_ago' => $day3,
+            'day3_ago' => $day4,
+            'day4_ago' => $day5,
+            'day5_ago' => $day6,
+            'day6_ago' => $day7,
+            'day1_regist'=>$this->regist_count($today),
+            'day2_regist'=>$this->regist_count($daydata2),
+            'day3_regist'=>$this->regist_count($daydata3),
+            'day4_regist'=>$this->regist_count($daydata4),
+            'day5_regist'=>$this->regist_count($daydata5),
+            'day6_regist'=>$this->regist_count($daydata6),
+            'day7_regist'=>$this->regist_count($daydata7),
             'week_regist'=>\App\Models\UserData::where('regist_day', '>=',$daydata7)->get()->count(),
             'month_regist'=>\App\Models\UserData::where('regist_day', '>=',$thismonth)->get()->count(),
             'year_regist'=>\App\Models\UserData::where('regist_day', '>=',$thisyear)->get()->count(),
             'all_regist'=>\App\Models\UserData::get()->count(),
-            'day1_regist_t'=>\App\Models\UserData::where('regist_day', $today)->where('user_attribute',0)->get()->count(),
-            'day2_regist_t'=>\App\Models\UserData::where('regist_day', $daydata2)->where('user_attribute',0)->get()->count(),
-            'day3_regist_t'=>\App\Models\UserData::where('regist_day', $daydata3)->where('user_attribute',0)->get()->count(),
-            'day4_regist_t'=>\App\Models\UserData::where('regist_day', $daydata4)->where('user_attribute',0)->get()->count(),
-            'day5_regist_t'=>\App\Models\UserData::where('regist_day', $daydata5)->where('user_attribute',0)->get()->count(),
-            'day6_regist_t'=>\App\Models\UserData::where('regist_day', $daydata6)->where('user_attribute',0)->get()->count(),
-            'day7_regist_t'=>\App\Models\UserData::where('regist_day', $daydata7)->where('user_attribute',0)->get()->count(),
-            'day1_regist_s'=>\App\Models\UserData::where('regist_day', $today)->where('user_attribute',1)->get()->count(),
-            'day2_regist_s'=>\App\Models\UserData::where('regist_day', $daydata2)->where('user_attribute',1)->get()->count(),
-            'day3_regist_s'=>\App\Models\UserData::where('regist_day', $daydata3)->where('user_attribute',1)->get()->count(),
-            'day4_regist_s'=>\App\Models\UserData::where('regist_day', $daydata4)->where('user_attribute',1)->get()->count(),
-            'day5_regist_s'=>\App\Models\UserData::where('regist_day', $daydata5)->where('user_attribute',1)->get()->count(),
-            'day6_regist_s'=>\App\Models\UserData::where('regist_day', $daydata6)->where('user_attribute',1)->get()->count(),
-            'day7_regist_s'=>\App\Models\UserData::where('regist_day', $daydata7)->where('user_attribute',1)->get()->count(),
-            'day1_performance'=>\App\Models\PerformanceData::where('implimantation', $today)->get()->count(),
-            'day2_performance'=>\App\Models\PerformanceData::where('implimantation', $daydata2)->get()->count(),
-            'day3_performance'=>\App\Models\PerformanceData::where('implimantation', $daydata3)->get()->count(),
-            'day4_performance'=>\App\Models\PerformanceData::where('implimantation', $daydata4)->get()->count(),
-            'day5_performance'=>\App\Models\PerformanceData::where('implimantation', $daydata5)->get()->count(),
-            'day6_performance'=>\App\Models\PerformanceData::where('implimantation', $daydata6)->get()->count(),
-            'day7_performance'=>\App\Models\PerformanceData::where('implimantation', $daydata7)->get()->count(),
-            'day1_studylog'=>\App\Models\StudyLog::where('implimantation', $today)->get()->count(),
-            'day2_studylog'=>\App\Models\StudyLog::where('implimantation', $daydata2)->get()->count(),
-            'day3_studylog'=>\App\Models\StudyLog::where('implimantation', $daydata3)->get()->count(),
-            'day4_studylog'=>\App\Models\StudyLog::where('implimantation', $daydata4)->get()->count(),
-            'day5_studylog'=>\App\Models\StudyLog::where('implimantation', $daydata5)->get()->count(),
-            'day6_studylog'=>\App\Models\StudyLog::where('implimantation', $daydata6)->get()->count(),
-            'day7_studylog'=>\App\Models\StudyLog::where('implimantation', $daydata7)->get()->count(),
+            'day1_regist_t'=>$this->regist_count_attribute($today,0),
+            'day2_regist_t'=>$this->regist_count_attribute($daydata2,0),
+            'day3_regist_t'=>$this->regist_count_attribute($daydata3,0),
+            'day4_regist_t'=>$this->regist_count_attribute($daydata4,0),
+            'day5_regist_t'=>$this->regist_count_attribute($daydata5,0),
+            'day6_regist_t'=>$this->regist_count_attribute($daydata6,0),
+            'day7_regist_t'=>$this->regist_count_attribute($daydata7,0),
+            'day1_regist_s'=>$this->regist_count_attribute($today,1),
+            'day2_regist_s'=>$this->regist_count_attribute($daydata2,1),
+            'day3_regist_s'=>$this->regist_count_attribute($daydata3,1),
+            'day4_regist_s'=>$this->regist_count_attribute($daydata4,1),
+            'day5_regist_s'=>$this->regist_count_attribute($daydata5,1),
+            'day6_regist_s'=>$this->regist_count_attribute($daydata6,1),
+            'day7_regist_s'=>$this->regist_count_attribute($daydata7,1),
+            'day1_performance'=>$this->performance_count($today),
+            'day2_performance'=>$this->performance_count($daydata2),
+            'day3_performance'=>$this->performance_count($daydata3),
+            'day4_performance'=>$this->performance_count($daydata4),
+            'day5_performance'=>$this->performance_count($daydata5),
+            'day6_performance'=>$this->performance_count($daydata6),
+            'day7_performance'=>$this->performance_count($daydata7),
+            'day1_studylog'=>$this->study_count($today),
+            'day2_studylog'=>$this->study_count($daydata2),
+            'day3_studylog'=>$this->study_count($daydata3),
+            'day4_studylog'=>$this->study_count($daydata4),
+            'day5_studylog'=>$this->study_count($daydata5),
+            'day6_studylog'=>$this->study_count($daydata6),
+            'day7_studylog'=>$this->study_count($daydata7),
             ];
         return view('admins.adminmypage',compact('items'));
     }
@@ -119,6 +139,7 @@ class AdminController extends Controller
     }
     function postdata(Request $request){
         $data = [
+            'id' => $request->id,
             'attribute' => $request->attribute,
             'last_name' => $request->last_name,
             'first_name' => $request->first_name,
@@ -145,6 +166,8 @@ class AdminController extends Controller
             'hour_pays' => $request->hour_pays,
             'comment' => $request->comment,
             'matching' => $request->matching,
+            'waiting' => $request->waiting,
+            'from_myself' => $request->from_myself,
         ];
         return $data;
     }
@@ -255,16 +278,22 @@ class AdminController extends Controller
             'comment' => $data['comment'],
             'updated_at' => $now,
             'matching' => $data['matching'],
+            'waiting' => $data['waiting'],
+            'from_myself' => $data['from_myself'],
         ]);
         $process_message = '下記内容にて変更完了しました。';
         return view('admins.adminformaction',compact('data','process_message'));
     }
-    function regist(Request $request){
+    function subject_data(Request $request){
         $data = [
             'classfication' => $request->classfication,
             'classfication_name' => $request->classfication_name,
             'subject_name' => $request->subject_name,
             ];
+        return $data;
+    }
+    function regist(Request $request){
+        $data = $this->subject_data($request);
         $now = Carbon::now('Asia/Tokyo');
         DB::table('subject_datas')->insert([
             'classfication' => $data['classfication'],
@@ -275,16 +304,20 @@ class AdminController extends Controller
             ]);
         return redirect()->to('/admin/subjects');
     }
-    function subject_delete($id){
+    function subject_delete(Request $request){
+        $id = $request->id;
         $subject = \App\Models\SubjectData::find($id);
         $subject->delete();
         return redirect()->to('/admin/subjects');
     }
-    function subject_edit($id){
+    function subject_edit(Request $request){
+        $id = $request->id;
         $items = \App\Models\SubjectData::where('id',$id)->get();
         return view('admins.adminsubjectedit',compact('items'));
     }
-    function subject_complete($id){
+    function subject_complete(Request $request){
+        $data = $this->subject_data($request);
+        $id = $request->id;
         $now = Carbon::now('Asia/Tokyo');
         DB::table('subject_datas')->where('id',$request->id)->update([
             'classfication' => $data['classfication'],

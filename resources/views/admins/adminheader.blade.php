@@ -77,7 +77,7 @@
       </div>
       <div class="account">
         <ul>
-          <li><a href="/account_info">◯◯さん</a></li>
+          <li><a href="/account_info">{{ Session::get('view_name') }}さん</a></li>
           <li><a href="/information">&#xf0f3</a></li>
           <li><a href="/message_data">&#xf003</a></li>
           <li><a href="/help">&#xf128</a></li>

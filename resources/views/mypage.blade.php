@@ -42,38 +42,17 @@
       <section class="second">
         <div class="study_log">
           <div class="section_title">
-            <h2>学習ログ</h2>
+            <h2><a href="/study_log">学習ログ</a></h2>
           </div>
           <div class="weekly_study_log">
+            @for($i=6;$i>=0;$i--)
             <div class="days">
-              <label>きのう-6<span>（月）</span></label>
-              <p>英語 10:00-11:00</p>
+              <label>{{$items['day'.$i.'_ago']}}</label>
+              @foreach(${'day'.$i.'s'} as ${'day'.$i})
+              <p>{{${'day'.$i}['subject']}} {{${'day'.$i}['elapsed_time']}}分</p>
+              @endforeach
             </div>
-            <div class="days">
-              <label>きょう-5<span>（火）</span></label>
-              <p>数学1 13:00-14:00</p>
-            </div>
-            <div class="days">
-              <label>きょう-4<span>（水）</span></label>
-              <p>古文 10:00-12:00</p>
-            </div>
-            <div class="days">
-              <label>きょう-3<span>（木）</span></label>
-              <p>古文 10:00-12:00</p>
-              <p>生物 15:00-18:00</p>
-            </div>
-            <div class="days">
-              <label>きょう-2<span>（金）</span></label>
-              <!-- <p></p> -->
-            </div>
-            <div class="days">
-              <label>きょう-1<span>（土）</span></label>
-              <p>化学 13:00-16:00</p>
-            </div>
-            <div class="days">
-              <label>きょう<span>（日）</span></label>
-              <!-- <p></p> -->
-            </div>
+            @endfor
           </div>
         </div>
       </section>

@@ -2,7 +2,7 @@
   <div class="container">
       @include('aside')
       <main>
-      <div class="test_results_regist">
+      <div class="results_regist">
         <button><a href="/test_results_regist">テスト結果登録</a></button>
       </div>
       <table>

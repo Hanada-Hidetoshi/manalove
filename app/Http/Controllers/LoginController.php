@@ -44,11 +44,14 @@ class LoginController extends Controller
         }
     }
     function logout(Request $request){
-        session()->flush();
+        Session::flush();
+        Session::regenerate();
         $process_message ='ログアウトしました';
         return view('/login',compact('process_message'));
     }
     function adminlogin(){
+        Session::flush();
+        Session::regenerate();
         $user_id = "";
         $password = "";
         return view('login',compact('user_id','password'));
@@ -57,6 +60,12 @@ class LoginController extends Controller
         $user_id = $request->user_id;
         $password = $request->password;
         if($user_id==='superuser'&&$password==='superuser'){
+            session([
+                'id' => 'superuser',
+                'user_id' => 'superuser',
+                'user_attribute' => 'superuser',
+                'view_name' => 'superuser',
+                ]);
             return redirect('/admin/mypage');
         }else{
             $process_message ='ユーザーIDかパスワードが違います';

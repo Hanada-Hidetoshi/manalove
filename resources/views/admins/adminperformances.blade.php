@@ -20,8 +20,8 @@
       <td>{{$item['scheduled']}}</td>
       <td>{{$item['implimantation']}}</td>
       <td>{{$item['subject']}}</td>
-      <td><span>ID:{{$item['t_id']}}</span><span>ID:{{$item['t_name']}}</span></td>
-      <td><span>ID:{{$item['s_id']}}</span><span>ID:{{$item['s_name']}}</span></td>
+      <td><span>ID:{{$item['t_id']}}</span><span>{{$item['t_name']}}</span></td>
+      <td><span>ID:{{$item['s_id']}}</span><span>{{$item['s_name']}}</span></td>
       <td>{{$item['content']}}</td>
       <td>{{$item['t_comment']}}</td>
       <td>{{$item['s_comment']}}</td>

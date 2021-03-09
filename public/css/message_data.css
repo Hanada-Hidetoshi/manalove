@@ -1,6 +1,6 @@
 div.message_datas{
   max-width:1000px;
-  margin:5%;
+  margin:0 5%;
   padding:2% 5%;
 }
 h2{
@@ -21,4 +21,3 @@ table th,td{
   padding:4px 0;
   border-bottom:1px solid black;
 }
-

@@ -176,8 +176,12 @@
               </div>
               @if(Session::get('id')==$item['id'])
                 <input type="submit" value="編集する">
-              @else
-                <a href="teacher/{{$item['id']}}/matching">この先生に依頼する</a>
+              @elseif(Session::get('user_attribute')!=$item['user_attribute'])
+                @if(Session::get('user_attribute')==0)
+                  <div class="waiting_button"><a href="/waiting/{{$item['id']}}">この生徒に依頼する</a></div>
+                @elseif(Session::get('user_attribute')==1)
+                  <div class="waiting_button"><a href="/waiting/{{$item['id']}}">この先生に依頼する</a></div>
+                @endif
               @endif
             </form>
             @endforeach

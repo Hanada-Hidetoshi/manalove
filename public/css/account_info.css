@@ -164,3 +164,25 @@ form button:hover,
 div.inner form input[type="submit"]:hover{
   background: #ff8300;
 }
+div.waiting_button{
+  width:500px;
+  margin:5px auto;
+  text-align:center;
+  border-radius: 5px;
+  background-color: #ff8300;
+  padding:15px 0;
+  color:white;
+  font-size:20px;
+  border:#ff8300 2px solid;
+}
+div.inner form a{
+  display:block;
+  text-decoration: none;
+  font-size:20px;
+  color:white;
+  font-weight:700;
+  background: #ff8300;
+}
+div.waiting_button:hover{
+  border:black 2px solid;
+}

@@ -13,9 +13,9 @@
       @if(request()->is('*login*'))
         <form action="/login" method="post">
       @elseif(request()->is('*admin*'))
-        <form method="post" action="/admin">
+        <form action="/admin" method="post">
       @else
-        <form method="post" action="/login">
+        <form action="/login" method="post" >
       @endif
         @csrf
         <div class="form_container">

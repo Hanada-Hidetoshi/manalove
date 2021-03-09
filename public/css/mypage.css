@@ -59,3 +59,9 @@ div.days p{
   border-radius:10px;
   margin:5px 0;
 }
+h2 a{
+  text-decoration: none;
+}
+h2 a:hover{
+  color:#3879D9;
+}

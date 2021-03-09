@@ -4,14 +4,14 @@ h2{
   margin:20px auto;
   font-size:20px;
 }
-div.teachers{
+div.users{
   width:100%;
   max-width:1000px;
   margin:0 auto;
   display:flex;
   flex-wrap: wrap;
 }
-a.teacher{
+a.user{
   width:45%;
   text-decoration: none;
   color:black;
@@ -21,14 +21,14 @@ a.teacher{
   border-radius:5px;
   border:solid 2px black;
 }
-a.teacher:hover{
+a.user:hover{
   border:2px solid blue;
   box-shadow:0px 0px 3px;
 }
-div.teacher_container{
+div.user_container{
   display:flex;
 }
-div.teacher_information h3{
+div.user_information h3{
   font-size:20px;
   font-weight:400;
   margin-bottom:10px;
@@ -43,13 +43,13 @@ p.hour_pays{
   color:#fff;
   background-color:rgba(0, 0, 255, 0.3) ;
 }
-a.teacher img{
+a.user img{
   width:150px;
   height:150px;
   margin:0 auto;
   align-items: center;
 }
-div.teacher_image{
+div.user_image{
   width:150px;
   height:150px;
 }

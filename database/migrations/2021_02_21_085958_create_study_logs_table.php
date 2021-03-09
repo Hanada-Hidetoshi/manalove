@@ -22,7 +22,7 @@ class CreateStudyLogsTable extends Migration {
 			$table->string('subject', 20)->nullable();
 			$table->date('start_time')->nullable();
 			$table->date('end_time')->nullable();
-			$table->date('elapsed_time')->nullable();
+			$table->integer('elapsed_time')->nullable();
 			$table->text('summary')->nullable();
 			$table->timestamps(6);
 		});

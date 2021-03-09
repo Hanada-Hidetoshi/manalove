@@ -8,7 +8,7 @@
     <p>{{$process_message}}</p>
   @endif
   <div class="inner">
-    <form action="/admin/users/complete" method="post">
+    <form action="/admin/users/complete/{{$data['id']}}" method="post">
       @csrf
       <input type="hidden" name="user_attribute" value="{{$data['user_attribute']}}">
       <div class="item">
@@ -100,13 +100,6 @@
           <p>浪人生・一般</p>
         @endif
       </div>
-      <div class="item">
-        <div class="required">
-          <label for="matching">マッチング情報</label>
-        </div>
-        <input type="hidden" name="matching" value="{{$data['matching']}}">
-        <p>{{$data['matching']}}</p>
-      </div>
       @elseif( $data['user_attribute'] ==0)
        <!--講師用 -->
       <div class="item">
@@ -192,6 +185,27 @@
         </div>
         <input type="hidden" name="comment" value="{{$data['comment']}}">
         <p>{{$data['comment']}}</p>
+      </div>
+      <div class="item">
+        <div class="option">
+          <label for="matching">マッチング情報</label>
+        </div>
+        <input type="hidden" name="matching" value="{{$data['matching']}}">
+        <p>{{$data['matching']}}</p>
+      </div>
+      <div class="item">
+        <div class="option">
+          <label for="waiting">マッチング情報</label>
+        </div>
+        <input type="hidden" name="waiting" value="{{$data['waiting']}}">
+        <p>{{$data['waiting']}}</p>
+      </div>
+      <div class="item">
+        <div class="option">
+          <label for="from_myself">マッチング情報</label>
+        </div>
+        <input type="hidden" name="from_myself" value="{{$data['from_myself']}}">
+        <p>{{$data['from_myself']}}</p>
       </div>
       <input type="submit" value="変更する">
     </form>

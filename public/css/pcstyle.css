@@ -185,3 +185,16 @@ footer{
   z-index:-1;
   background:#DFF2FC;
 }
+div.search_button{
+  width:500px;
+  margin:5px auto;
+  text-align:center;
+  border-radius: 5px;
+  background-color: blue;
+  padding:15px 0;
+  font-size:20px;
+}
+div.search_button a{
+  text-decoration: none;
+  color:white;
+}

@@ -187,20 +187,6 @@
         </select>
       </div>
     </div>
-      <div class="item">
-        <div class="required">
-          <label for="matching">マッチング情報</label>
-          <p>必須</p>
-        </div>
-        <div class="link_item">
-        @if ($errors->has('matching'))
-          @foreach($errors->get('course') as $message)
-            <p class="error_message">{{ $message }}</p>
-          @endforeach
-        @endif
-        <input type="text" placeholder="1,2,3,4" name="matching" value="{{ old('matching',$item['matching'] ?? '') }}">
-      </div>
-    </div>
     @elseif( $item['user_attribute'] ==0)
     <!-- 講師用 -->
     <div class="item">
@@ -373,6 +359,33 @@
           @endforeach
         @endif
         <textarea name="comment" id="" cols="30" rows="10">{{ old('comment',$item['comment'] ?? '') }}</textarea>
+      </div>
+    </div>
+    <div class="item">
+      <div class="option">
+        <label for="matching">マッチング情報</label>
+        <p>任意</p>
+      </div>
+      <div class="link_item">
+        <input type="text" placeholder="1,2,3,4" name="matching" value="{{ old('matching',$item['matching'] ?? '') }}">
+      </div>
+    </div>
+    <div class="item">
+      <div class="option">
+        <label for="waiting">待機列情報</label>
+        <p>任意</p>
+      </div>
+      <div class="link_item">
+        <input type="text" placeholder="1,2,3,4" name="waiting" value="{{ old('waiting',$item['waiting'] ?? '') }}">
+      </div>
+    </div>
+    <div class="item">
+      <div class="option">
+        <label for="from_myself">ユーザーから申請情報</label>
+        <p>任意</p>
+      </div>
+      <div class="link_item">
+        <input type="text" placeholder="1,2,3,4" name="from_myself" value="{{ old('from_myself',$item['from_myself'] ?? '') }}">
       </div>
     </div>
     <input type="submit" value="確認画面へ" class="submit">

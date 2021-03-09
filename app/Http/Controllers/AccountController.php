@@ -8,8 +8,10 @@ use Session;
 
 class AccountController extends Controller
 {
-    function index(){
-        return view('account_info');
+    function index(Request $request){
+        $id = $request->session()->get('id');
+        $items = \App\Models\UserData::where('id', $id)->get();
+        return view('account_info',compact('items'));
     }
     function profile($id){
         $items = \App\Models\UserData::where('id', $id)->get();

@@ -13,11 +13,11 @@
     </div>
     <ul>
       <li><a href="/mypage">ホーム<span>&#xf105</span></a></li>
-      <li><a href="/message_data">トークルーム<span>&#xf105</span></a></li>
-      <li><a href="/lesson">レッスン/実績<span>&#xf105</span></a></li>
+      <li><a href="/matching_data">トークルーム<span>&#xf105</span></a></li>
+      <li><a href="/lesson">レッスン予定/実績<span>&#xf105</span></a></li>
       <li><a href="/curriculum">カリキュラム<span>&#xf105</span></a></li>
       <li><a href="/test_results">テスト成績<span>&#xf105</span></a></li>
-      <li><a href="/study_log_data">学習ログ<span>&#xf105</span></a></li>
+      <li><a href="/study_logs">学習ログ<span>&#xf105</span></a></li>
       <li><a href="/account_info">アカウント情報<span>&#xf105</span></a></li>
       <li><a href="/contact">お問い合わせ<span>&#xf105</span></a></li>
       <li><a href="/logout">ログアウト<span>&#xf105</span></a></li>
@@ -38,11 +38,8 @@
     </div>
     <ul>
       <li><a href="/mypage">ホーム<span>&#xf105</span></a></li>
-      <li><a href="/message_data">マッチング済み一覧<span>&#xf105</span></a></li>
-      <li><a href="/lesson">実績一覧<span>&#xf105</span></a></li>
-      <li><a href="/curriculum">カリキュラム一覧<span>&#xf105</span></a></li>
-      <li><a href="/test_results">テスト成績<span>&#xf105</span></a></li>
-      <li><a href="/study_log_data">学習ログ<span>&#xf105</span></a></li>
+      <li><a href="/matching_data">トークルーム<span>&#xf105</span></a></li>
+      <li><a href="/lesson">レッスン登録/実績<span>&#xf105</span></a></li>
       <li><a href="/account_info">アカウント情報<span>&#xf105</span></a></li>
       <li><a href="/contact">お問い合わせ<span>&#xf105</span></a></li>
       <li><a href="/logout">ログアウト<span>&#xf105</span></a></li>

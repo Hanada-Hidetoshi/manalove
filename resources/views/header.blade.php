@@ -87,7 +87,11 @@
     <nav>
       <ul>
         <li><a href="/mypage">マイページ</a></li>
-        <li><a href="/favorite">気になるリスト</a></li>
+        @if(Session::get('user_attribute')==1)
+        <li><a href="/teachers">先生検索</a></li>
+        @elseif(Session::get('user_attribute')==0)
+        <li><a href="/students">生徒検索</a></li>
+        @endif
         <li><a href="/q&a">Q&A</a></li>
         <li><a href="/lessoninfo">授業について</a></li>
         <li><a href="/logout">ログアウト</a></li>

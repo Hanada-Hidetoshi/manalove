@@ -11,13 +11,13 @@ div.summarys{
   display:flex;
   border-bottom:solid 1px black;
 }
-div.graph{
-  width:42%;
+div.study_log_data{
+  width:62%;
   padding:0 2%;
   margin:2%;
 }
 div.summary{
-  width:42%;
+  width:22%;
   padding:0 2%;
   margin:2%;
 }
@@ -37,5 +37,49 @@ table tr{
 }
 table th,td{
   border-bottom:solid 1px black;
-  padding:3px 0;
+  padding:3px 3px;
+}
+div.results_regist input[type="submit"]{
+  background: #ffa035;
+  border:none;
+  border-radius:5px;
+  padding:5px;
+  font-size:20px;
+  color:white;
+  font-weight:700;
+}
+div.results_regist input[type="submit"]:hover{
+  background: #ff8300;
+}
+div.results_regist input[type="text"],
+div.results_regist input[type="number"]{
+  padding:5px;
+}
+div.results_regist span{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+input[type="date"]{
+  height:25px;
+}
+textarea{
+  width:100%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding:5px;
+  height:17px;
+}
+div.study_data{
+  overflow:auto;
+  border:1px solid black;
+}
+tr.data{
+  border:1px black solid;
+  padding:5px;
+}
+tr.data:hover{
+  background-color:#DFF2FC;
 }
