@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\UserData;
 use Illuminate\Http\Request;
+use App\Models\UserData;
 use App\Models\StudyLog;
 use Carbon\Carbon;
 use Session;

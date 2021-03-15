@@ -5,6 +5,7 @@
       <section class="first">
         <div class="results_regist">
           <table>
+            @if(Session::get('id')!=null)
             <tr>
               <th style="width:10%">日付</th>
               <th style="width:10%">教科</th>
@@ -24,6 +25,7 @@
               <th><input type="submit" value="学習ログ登録"></th>
             </tr>
             </form>
+            @endif
           </table>
         </div>
       </section>

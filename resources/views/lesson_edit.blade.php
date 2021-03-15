@@ -48,12 +48,13 @@
             <th style="width:7.5%">講師名</th>
             @endif
             <th style="width:20%">生徒コメント</th>
-            <th style="width:20%">生徒コメント</th>
+            <th style="width:20%">先生コメント</th>
             <th style="width:10%">教科</th>
             <th style="width:20%">内容</th>
             <th style="width:10%">登録</th>
           </tr>
           @foreach($items as $item)
+          @if($item['t_name']==session::get('view_name')or$item['s_name']==session::get('view_name'))
           <form action="/lesson/confirm/{{$item['id']}}" method="post">
           @csrf
           <tr>
@@ -74,6 +75,7 @@
             <th><input type="submit" value="実績登録"></th>
           </tr>
           </form>
+          @endif
           @endforeach
         </table>
       </div>

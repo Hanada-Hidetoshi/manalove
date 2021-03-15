@@ -62,10 +62,12 @@ Route::prefix('regist')->group(function () {
 // 各検索画面のルーティング
 Route::prefix('teachers')->group(function () {
     Route::get('/', [SearchController::class,'teachers']);
+    Route::post('/', [SearchController::class,'postteachers']);
     Route::get('/profile/{id}', [AccountController::class,'profile']);
 });
 Route::prefix('students')->group(function () {
     Route::get('/', [SearchController::class,'students']);
+    Route::post('/', [SearchController::class,'poststudents']);
     Route::get('/profile/{id}', [AccountController::class,'profile']);
 });
 // マッチング関係のルーティング
@@ -85,6 +87,8 @@ Route::prefix('study_logs')->group(function () {
 // テスト関係のルーティング
 Route::prefix('test_results')->group(function () {
     Route::get('/', [TestController::class,'index']);
+    Route::post('/regist', [TestController::class,'regist']);
+    Route::get('/delete/{id}', [TestController::class,'test_delete']);
 });
 // 管理者画面のルーティング
 Route::prefix('admin')->group(function () {

@@ -42,7 +42,7 @@
       <section class="second">
         <div class="study_log">
           <div class="section_title">
-            <h2><a href="/study_log">学習ログ</a></h2>
+            <h2><a href="/study_logs">学習ログ</a></h2>
           </div>
           <div class="weekly_study_log">
             @for($i=6;$i>=0;$i--)

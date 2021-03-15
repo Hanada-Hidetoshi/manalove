@@ -23,31 +23,31 @@
         <div class="search_contents">
           <h3>担当科目から探す</h3>
           <div class="search_box">
-          <form action="/teachers" method="get">
+          <form action="/teachers" method="post">
             @csrf
             <div class="subjects">
               <div class="j_h_subject">
                 <h4 class="subject_title">小学科目</h4>
                 @foreach($p_subjects as $p_subject)
-                <span><input type="checkbox" id={{$p_subject['id']}} value="{{$p_subject['subject_name']}}"><label for="{{$p_subject['id']}}">{{$p_subject['subject_name']}}</label></span>
+                <span><input type="checkbox" name="p_subjects[]" id={{$p_subject['id']}} value="{{$p_subject['subject_name']}}"><label for="{{$p_subject['id']}}">{{$p_subject['subject_name']}}</label></span>
                 @endforeach
               </div>
               <div class="j_h_subject">
                 <h4 class="subject_title">中学科目</h4>
                 @foreach($j_h_subjects as $j_h_subject)
-                <span><input type="checkbox" id={{$j_h_subject['id']}} value="{{$j_h_subject['subject_name']}}"><label for="{{$j_h_subject['id']}}">{{$j_h_subject['subject_name']}}</label></span>
+                <span><input type="checkbox" name="j_h_subjects[]"id={{$j_h_subject['id']}} value="{{$j_h_subject['subject_name']}}"><label for="{{$j_h_subject['id']}}">{{$j_h_subject['subject_name']}}</label></span>
                 @endforeach
               </div>
               <div class="h_subject">
                 <h4 class="subject_title">高校科目</h4>
                 @foreach($h_subjects as $h_subject)
-                <span><input type="checkbox" id={{$h_subject['id']}} value="{{$h_subject['subject_name']}}"><label for="{{$h_subject['id']}}">{{$h_subject['subject_name']}}</label></span>
+                <span><input type="checkbox" name="h_subjects[]" id={{$h_subject['id']}} value="{{$h_subject['subject_name']}}"><label for="{{$h_subject['id']}}">{{$h_subject['subject_name']}}</label></span>
                 @endforeach
               </div>
               <div class="special_subject">
                 <h4 class="subject_title">専門科目</h4>
                 @foreach($s_subjects as $s_subject)
-                <span><input type="checkbox" id={{$s_subject['id']}} value="{{$s_subject['subject_name']}}"><label for="{{$s_subject['id']}}">{{$s_subject['subject_name']}}</label></span>
+                <span><input type="checkbox"name="s_subjects[]" id={{$s_subject['id']}} value="{{$s_subject['subject_name']}}"><label for="{{$s_subject['id']}}">{{$s_subject['subject_name']}}</label></span>
                 @endforeach
               </div>
             </div>

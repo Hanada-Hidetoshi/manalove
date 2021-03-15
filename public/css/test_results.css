@@ -8,28 +8,57 @@ div.results_regist button{
   padding:5px 0;
   margin-bottom:20px;
 }
-div.results_regist button a{
+div.results_regist button{
   text-decoration: none;
   font-size:20px;
   color:white;
   font-weight:700;
+  padding:5px;
 }
 div.results_regist button:hover{
   background: #ff8300;
 }
+div.scores{
+  border:solid 2px black;
+  border-radius:10px;
+  margin:5px 5%;
+  max-width:1000px;
+}
+  
 table{
-  width:90%;
-  margin:30px 5%;
   text-align:center;
 }
 table tr td{
-  border-bottom:1px solid black;
   padding:3px;
 }
 table tr th{
   padding:10px 0;
-  border-bottom:1px solid black;
 }
 img{
   width:100%;
+}
+div.test_result{
+  margin:2px 0;
+}
+div.test_result input[type="number"]{
+  width:60px;
+}
+div.test_result select{
+  width:150px;
+}
+div.titles{
+  display:flex;
+}
+div.title{
+  margin:0 auto;
+}
+div.titles input[type="text"]{
+  padding:2px;
+  height:25px;
+  width:165px;
+}
+div.titles input[type="date"]{
+  padding:2px;
+  height:25px;
+  width:165px;
 }
