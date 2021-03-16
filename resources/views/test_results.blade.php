@@ -47,8 +47,8 @@
           </form>
         </div>
       </div>
-      @if($list != null)
       @for($i=0;$i<count($list);$i++)
+      @if($list[$i]!=null)
       <div class="scores">
       <table>
         <tr>
@@ -73,10 +73,8 @@
         </tr>
       </table>
       </div>
-      @endfor
-      @else
-      <p>テスト成績の登録はありません</p>
       @endif
+      @endfor
     </main>
   </div>
   @include('footer')

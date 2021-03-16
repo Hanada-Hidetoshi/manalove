@@ -22,9 +22,13 @@ class TestController extends Controller
         $list=[];
         
         for($i=0;$i<$max_test_id-1;$i++){
-            $list[$i] =[
-                'items' => \App\Models\TestResult::where('s_id',$id)->where('test_id',$i+1)->orderBy('implimantation', 'desc')->orderBy('subject_id', 'asc')->get(),
-                ];
+            if(\App\Models\TestResult::where('s_id',$id)->where('test_id',$i+1)->exists()){
+                $list[$i] =[
+                    'items' => \App\Models\TestResult::where('s_id',$id)->where('test_id',$i+1)->orderBy('implimantation', 'desc')->orderBy('subject_id', 'asc')->get(),
+                    ];
+            }else{
+               $list[$i] = [];
+            }
         }
         
         // var_dump($list[0]['items'][1]['score']);
