@@ -4,18 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="{{secure_asset('css/reset.css')}}">
-  <link rel="stylesheet" href="{{secure_asset('css/'.$title.'.css')}}">
-  <link rel="shortcut icon" href="{{secure_asset('images/favicon.ico')}}">
+  <link rel="stylesheet" href="{{asset('css/reset.css')}}">
+  <link rel="stylesheet" href="{{asset('css/'.$title.'.css')}}">
+  <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}">
   <!-- <link rel="stylesheet" href="css/mobilestyle.css" media="(max-width:480px)">
   <link rel="stylesheet" href="css/pcstyle.css" media="(min-width:481px)"> -->
-  <link rel="stylesheet" href="{{secure_asset('css/pcstyle.css')}}">
+  <link rel="stylesheet" href="{{asset('css/pcstyle.css')}}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <title>Manalove|{{$title_ja}}</title>
 </head>
 <body>
   <header>
     <div class="header">
-      <h1><a href="/"><img src="{{secure_asset('images/logo.png')}}" alt="Manalove"></a></h1>
+      <h1><a href="/"><img src="{{asset('images/logo.png')}}" alt="Manalove"></a></h1>
       <div class="search">
         <div class="keyword_search">
           <form method="get" action="/" class="keyword_search_form">

@@ -27,6 +27,7 @@
             </form>
             @endif
           </table>
+          <a href="/study_logs/csv">CSVダウンロード</a>
         </div>
       </section>
       <section class="second">
@@ -58,9 +59,42 @@
           </div>
         </div>
       </section>
+      <section>
+      <canvas id="myPieChart"></canvas>
+      </section>
     </main>
   </div>
   @include('footer')
 </div>
+<input type="hidden" id="subject_log" data-subject="{{implode(',', $subject['subject_name']) }}" data-time="[{{implode(",", $subject['time'])}}]">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script src="https://github.com/nagix/chartjs-plugin-colorschemes/releases/download/v0.2.0/chartjs-plugin-colorschemes.min.js"></script>
+<script>
+$(function(){
+  subject=$('#subject_log').data('subject');
+  subject=subject.split(',');
+  var ctx = $("#myPieChart");
+  var myPieChart = new Chart(ctx, {
+    type: 'pie',
+    data : {
+      labels: subject, //データ項目のラベル
+      datasets: [{
+        data:$('#subject_log').data('time') //グラフのデータ
+        }]
+    },
+    options: {
+      plugins: {
+        colorschemes: {
+          scheme: 'brewer.Spectral11'
+        }
+      },
+      title: {
+        display: true,
+        text: '学習サマリー'
+      }
+    }
+  });
+});
+</script>
 </body>
 </html>

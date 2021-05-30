@@ -17,14 +17,31 @@ class StudyController extends Controller
         $daydata = Carbon::today();
         $daydata7 = $daydata->subday(7);
         $day7 = $daydata7->format('y-m-d');
-        $thismonth = $daydata->format("Y-m-1");
+        $thismonth = $daydata->format("Y-m-01");
+        $subject_arr = \App\Models\StudyLog::where('s_id',$id)->distinct()->select('subject')->get()->toArray();
+        $subject["subject_name"] = array();
+        $subject["time"] = array();
+        foreach($subject_arr as $val){
+            if ($val["subject"] != "") {
+                $subject_name = $val["subject"];
+                $time = \App\Models\StudyLog::where('s_id',$id)->where('subject',$val["subject"])->sum('elapsed_time');
+                array_push($subject["subject_name"], $subject_name);
+                array_push($subject["time"], $time);
+            }
+        }
+        // $subject_name = [
+            // 'subject_name' => \App\Models\StudyLog::where('s_id',$id)->distinct()->select('subject')->get()->toArray(),
+            // 'subject_name' => array("数学", "国語", "社会", "理科", "英語"),
+            // 'time'=>array(200,300,400,500,600),
+            // 'time' =>\App\Models\StudyLog::where('s_id',$id)->groupBy("subject")->sum('elapsed_time'),
+            // ];
         $data = [
-            'w_study' => $query->where('implimantation','>=',$day7)->sum('elapsed_time'),
-            'm_study' => $query->where('implimantation','>=',$thismonth)->sum('elapsed_time'),
-            'all_study' => $query->sum('elapsed_time'),
             'count' => $query->count(),
+            'all_study' => $query->sum('elapsed_time'),
+            'm_study' => $query->where('implimantation','>=',$thismonth)->sum('elapsed_time'),
+            'w_study' => $query->where('implimantation','>=',$day7)->sum('elapsed_time'),
             ];
-        return view('study_log_data',compact('items','data'));
+        return view('study_log_data',compact('items','data','subject'));
     }
     function logdata(Request $request){
         $data = [
@@ -64,9 +81,9 @@ class StudyController extends Controller
         return view('study_log_data_edit',compact('items'));
     }
     function logcomplete(Request $request){
-        $data = $this->logdata_data($request);
+        $data = $this->logdata($request);
         $now = Carbon::now('Asia/Tokyo');
-        DB::table('sstudy_logs')->where('id',$request->id)->update([
+        DB::table('study_logs')->where('id',$request->id)->update([
             'implimantation' => $data['implimantation'],
             'elapsed_time' => $data['elapsed_time'],
             'subject' => $data['subject'],

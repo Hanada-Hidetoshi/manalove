@@ -2,7 +2,7 @@
   @if(Session::get('user_attribute')==1)
 <aside>
   <div class="account_info">
-    <img src="{{secure_asset('images/account.jpeg')}}" alt="{{ Session::get('view_name') }}">
+    <img src="{{asset('images/account.jpeg')}}" alt="{{ Session::get('view_name') }}">
     <p>{{ Session::get('view_name') }}さん</p>
     <p><a href="/profile">プロフィール編集 &#xf044</a></p>
     <p><a href="/">スケジュール編集 &#xf044</a></p>
@@ -27,7 +27,7 @@
   @elseif(Session::get('user_attribute')==0)
 <aside>
   <div class="account_info">
-    <img src="{{secure_asset('images/account.jpeg')}}" alt="{{ Session::get('view_name') }}">
+    <img src="{{asset('images/account.jpeg')}}" alt="{{ Session::get('view_name') }}">
     <p>{{ Session::get('view_name') }}さん</p>
     <p><a href="/profile/change">プロフィール編集 &#xf044</a></p>
     <p><a href="/">スケジュール編集 &#xf044</a></p>

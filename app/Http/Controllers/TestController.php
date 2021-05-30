@@ -25,6 +25,14 @@ class TestController extends Controller
             if(\App\Models\TestResult::where('s_id',$id)->where('test_id',$i+1)->exists()){
                 $list[$i] =[
                     'items' => \App\Models\TestResult::where('s_id',$id)->where('test_id',$i+1)->orderBy('implimantation', 'desc')->orderBy('subject_id', 'asc')->get(),
+                    // 'items' => DB::table('test_results as tr')
+                    //         ->Join('subject_datas as sd','sd.id', '=', 'tr.subject_id')
+                    //         ->where('tr.s_id',$id)
+                    //         ->where('tr.test_id',$i+1)
+                    //         ->orderBy('tr.implimantation', 'desc')
+                    //         ->orderBy('tr.subject_id', 'asc')
+                    //         ->select('tr.*', 'sd.subject_name')
+                    //         ->get(),
                     ];
             }else{
                $list[$i] = [];
@@ -32,7 +40,7 @@ class TestController extends Controller
         }
         
         // var_dump($list[0]['items'][1]['score']);
-        // var_dump($items);
+        // var_dump($list);
         return view('test_results',compact('primarys','juniorhighs','highs','specials','max_test_id','list'));
     }
     
@@ -49,6 +57,7 @@ class TestController extends Controller
     }
     function regist(Request $request){
         $data = $this->postdata($request);
+        \App\Models\TestResult::where('test_id',$data['test_id'])->where('s_id',$data['s_id'])->delete();
         $now = Carbon::now('Asia/Tokyo');
         $list = [];
         for($i=0;$i<count($data['subject_id']);$i++){

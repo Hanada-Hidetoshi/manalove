@@ -1,6 +1,6 @@
 <aside>
   <div class="account_info">
-    <img src="{{secure_asset('images/favicon.jpeg')}}" alt="管理者">
+    <img src="{{asset('images/favicon.jpeg')}}" alt="管理者">
     <p>ニックネーム({{ Session::get('view_name') }})</p>
     <p><a href="/profile/change">プロフィール編集 &#xf044</a></p>
     <p><a href="/">スケジュール編集 &#xf044</a></p>

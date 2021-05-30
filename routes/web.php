@@ -16,6 +16,7 @@ use App\Http\Controllers\FormController;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\CsvController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -83,6 +84,7 @@ Route::prefix('study_logs')->group(function () {
     Route::get('/edit/{id}', [StudyController::class,'logedit']);
     Route::get('/delete/{id}', [StudyController::class,'logdelete']);
     Route::post('/complete/{id}', [StudyController::class,'logcomplete']);
+    Route::get('/csv', [CsvController::class,'putCsv']);
 });
 // テスト関係のルーティング
 Route::prefix('test_results')->group(function () {
